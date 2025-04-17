@@ -1,9 +1,6 @@
 name: CI - Code Coverage
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -27,8 +24,5 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:coverage
 
-      - name: Upload coverage report
-        if: success()
-        run: |
-          echo "Code coverage report generated."
-          # You can add additional steps here like uploading to coverage services.
+      - name: Check coverage threshold
+        run: npx jest --coverage

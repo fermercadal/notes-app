@@ -23,6 +23,14 @@ const customJestConfig = {
 		"^@/utils/(.*)$": "<rootDir>/src/app/_utils/$1",
 		"^@/components/(.*)$": "<rootDir>/src/app/_components/$1",
 	},
+	coverageThreshold: {
+		global: {
+			branches: 80,
+			functions: 80,
+			lines: 80,
+			statements: 80,
+		},
+	},
 };
 
 module.exports = createJestConfig(customJestConfig);
