@@ -14,6 +14,7 @@ const customJestConfig = {
 		"!src/**/*.d.ts",
 		"!src/**/index.ts",
 		"!src/app/**/route.ts",
+		"!src/app/_utils/schemas/**",
 	],
 	coverageDirectory: "coverage",
 	coverageReporters: ["json", "lcov", "text", "clover"],
