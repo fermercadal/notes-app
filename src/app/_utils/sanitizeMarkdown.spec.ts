@@ -1,5 +1,4 @@
 import { sanitizeMarkdown } from "./sanitizeMarkdown";
-import DOMPurify from "dompurify";
 
 jest.mock("dompurify", () => ({
 	__esModule: true,
@@ -12,15 +11,23 @@ jest.mock("dompurify", () => ({
 
 describe("sanitizeMarkdown", () => {
 	it("returns the input as-is when running on the server", () => {
+		// Temporarily remove `window` from the global object
 		const originalWindow = global.window;
-		delete (global as any).window; // Simulate server-side rendering
+		Object.defineProperty(global, "window", {
+			value: undefined,
+			configurable: true,
+		});
 
 		const result = sanitizeMarkdown(
 			"<script>alert('XSS')</script># Hello World"
 		);
 		expect(result).toBe("<script>alert('XSS')</script># Hello World");
 
-		global.window = originalWindow; // Restore the original window object
+		// Restore the original `window` object
+		Object.defineProperty(global, "window", {
+			value: originalWindow,
+			configurable: true,
+		});
 	});
 
 	it("sanitizes the input markdown on the client", () => {

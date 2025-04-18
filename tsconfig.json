@@ -18,11 +18,11 @@
 				"name": "next"
 			}
 		],
-		"baseUrl": ".",
+		"baseUrl": "src/",
 		"paths": {
-			"@hooks/*": ["src/app/_hooks/*"],
-			"@utils/*": ["src/app/_utils/*"],
-			"@components/*": ["src/app/_components/*"]
+			"@hooks/*": ["app/_hooks/*"],
+			"@utils/*": ["app/_utils/*"],
+			"@components/*": ["app/_components/*"]
 		},
 		"types": ["jest", "node"]
 	},

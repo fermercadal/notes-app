@@ -23,6 +23,7 @@ export default function MarkdownEditor() {
 			await navigator.clipboard.writeText(markdown);
 			alert("Markdown content copied to clipboard!");
 		} catch (err) {
+			console.log("Failed to copy content.", { err });
 			alert("Failed to copy content.");
 		}
 	};
@@ -32,6 +33,7 @@ export default function MarkdownEditor() {
 			await submitNote(markdown);
 			alert("Note submitted successfully!");
 		} catch (err) {
+			console.log("Failed to submit the note.", { err });
 			alert("Failed to submit the note.");
 		}
 	};

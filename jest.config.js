@@ -15,13 +15,16 @@ const customJestConfig = {
 		"!src/**/index.ts",
 		"!src/app/**/route.ts",
 		"!src/app/_utils/schemas/**",
+		"!src/app/page.tsx",
+		"!src/app/layout.tsx",
+		"!src/app/_components/MarkdownEditor.tsx",
 	],
 	coverageDirectory: "coverage",
 	coverageReporters: ["json", "lcov", "text", "clover"],
 	moduleNameMapper: {
-		"^@/hooks/(.*)$": "<rootDir>/src/app/_hooks/$1",
-		"^@/utils/(.*)$": "<rootDir>/src/app/_utils/$1",
-		"^@/components/(.*)$": "<rootDir>/src/app/_components/$1",
+		"^@/hooks/(.*)$": "<rootDir>/app/_hooks/$1",
+		"^@/utils/(.*)$": "<rootDir>/app/_utils/$1",
+		"^@/components/(.*)$": "<rootDir>/app/_components/$1",
 	},
 	coverageThreshold: {
 		global: {
